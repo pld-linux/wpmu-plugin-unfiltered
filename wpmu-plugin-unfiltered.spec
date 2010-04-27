@@ -1,4 +1,4 @@
-Summary:	unfiltered-html capability for WordPress 
+Summary:	unfiltered-html capability for WordPress
 Name:		wordpress-plugin-unfiltered-mu
 Version:	1.2
 Release:	1
@@ -17,22 +17,23 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Unfiltered MU gives Administrators and Editors the unfiltered_html
-capability. This prevents WordPress MU from stripping <iframe>, <embed>, etc.
-from these users' posts. Authors and Contributors do not get this capability
-for security reasons.
+capability. This prevents WordPress MU from stripping <iframe>,
+<embed>, etc. from these users' posts. Authors and Contributors do not
+get this capability for security reasons.
 
-Warning! This is a very dangerous plugin to activate if you have untrusted
-users on your site. Any user could add Javascript code to steal the login
-cookies of any visitor who runs a blog on the same site. The rogue user can
-then inpersonate any of those users and wreak havoc. If all you want is to
-display videos on your WordPress MU blogs, use Viper's Video Quicktags or any
-of the other video plugins on WordPress.org.
+Warning! This is a very dangerous plugin to activate if you have
+untrusted users on your site. Any user could add Javascript code to
+steal the login cookies of any visitor who runs a blog on the same
+site. The rogue user can then inpersonate any of those users and wreak
+havoc. If all you want is to display videos on your WordPress MU
+blogs, use Viper's Video Quicktags or any of the other video plugins
+on WordPress.org.
 
-The plugin can either be used globally for your entire MU site, or it can be
-applied on a blog-by-blog basis.
+The plugin can either be used globally for your entire MU site, or it
+can be applied on a blog-by-blog basis.
 
-For WordPress MU only. Regular WordPress already offers this feature and does
-not need this plugin.
+For WordPress MU only. Regular WordPress already offers this feature
+and does not need this plugin.
 
 %prep
 %setup -q -n unfiltered-mu
