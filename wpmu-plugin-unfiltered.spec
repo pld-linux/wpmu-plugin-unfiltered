@@ -7,6 +7,7 @@ Group:		Applications/Publishing
 URL:		http://wordpress.org/extend/plugins/unfiltered-mu/
 Source0:	http://downloads.wordpress.org/plugin/unfiltered-mu.zip
 # Source0-md5:	323784d2024f2d8e6e45113f3313a456
+BuildRequires:	unzip
 Requires:	wordpress
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
