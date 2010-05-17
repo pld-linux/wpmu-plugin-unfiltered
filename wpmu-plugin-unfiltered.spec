@@ -1,5 +1,6 @@
+%define		plugin	unfiltered
 Summary:	unfiltered-html capability for WordPress
-Name:		wordpress-plugin-unfiltered-mu
+Name:		wpmu-plugin-%{plugin}
 Version:	1.2
 Release:	1
 License:	Unknown, but it safe to assume, it's under wordpress' license (GPL)
@@ -8,13 +9,14 @@ URL:		http://wordpress.org/extend/plugins/unfiltered-mu/
 Source0:	http://downloads.wordpress.org/plugin/unfiltered-mu.zip
 # Source0-md5:	323784d2024f2d8e6e45113f3313a456
 BuildRequires:	unzip
-Requires:	wordpress
+Requires:	wpmu >= 2.8.4
+Obsoletes:	wordpress-plugin-unfiltered-mu
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		wordpressdir	%{_datadir}/wordpress
-%define		pluginssubdir	wp-content/plugins
-%define		pluginsdir		%{wordpressdir}/%{pluginssubdir}
+%define		wp_root		%{_datadir}/wpmu
+%define		wp_content	%{wp_root}/wp-content
+%define		pluginsdir	%{wp_content}/mu-plugins
 
 %description
 Unfiltered MU gives Administrators and Editors the unfiltered_html
@@ -33,16 +35,13 @@ on WordPress.org.
 The plugin can either be used globally for your entire MU site, or it
 can be applied on a blog-by-blog basis.
 
-For WordPress MU only. Regular WordPress already offers this feature
-and does not need this plugin.
-
 %prep
 %setup -q -n unfiltered-mu
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{wordpressdir} $RPM_BUILD_ROOT%{pluginsdir}
-cp -a unfiltered-mu.php $RPM_BUILD_ROOT%{pluginsdir}/unfiltered-mu.php
+install -d $RPM_BUILD_ROOT%{pluginsdir}
+cp -a unfiltered-mu.php $RPM_BUILD_ROOT%{pluginsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
